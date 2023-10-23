@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Designer</title>
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        a{
+            color: white;
+            font-size: large;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .form_builder{
+        width: 262px;
+        height: 1084px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgb(65, 65, 65);
+        }
+        h2{
+            color: white;
+        }
+        .box-model{
+            margin-left: 262px;
+            height: 900px;
+            background-color: #c5c1c1;
+            font-size: x-large;
+            padding-top: 0%;
+            top: 0%;
+            font-weight: bold;
+            position: relative;
+        }
+        #designer-page{
+            right: 20px;
+            
+        }
+        .button{
+            position: relative;
+            text-align: right;
+            padding-bottom: 0%;
+            right: 0cm;
+
+        }
+        .layout{
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #img1{
+            width: 20px; 
+            height: auto;
+            margin-right: 0.2cm;
+        }
+        /*publish-bt{
+            position: absolute;
+            top: 1cm;
+            right: 0.2cm;
+            width: 95px;
+            height: 30px;
+            background-color: #00a6ff;
+            
+        }*/
+        .button1{
+            top: 2cm;
+            right: 0.2cm;
+            width: 95px;
+            height: 30px;
+        }
+        /*preview-bt{
+            top: 1cm;
+            left: 2cm;
+            width: 95px;
+            height: 30px;
+            margin-right:100px;
+        }*/
+        #pb,#pv{
+            font-weight:bold;
+            font-size: medium;
+        }
+        .ds{
+            padding-top: 0%;
+        }
+	
+	</style>
+</head>
+<body>
+        <div class="container">
+            <nav class="navbar navbar-light  bg-faded fixed-top">
+                <div class="clearfix">
+                </div>
+            </nav>
+            <br/>
+            <div class="clearfix"></div>
+            <div class="button">
+            <button value="Preview" id="preview-bt" class="button1"><label id="pv">Preview</label></button>
+            <button type="submit" value="Publish" id="publish-bt" class="button1"><label id="pb">Publish</label></button>
+        </div>
+            <div class="box-model">
+                <p id="ds"><u>Design Page</u></p>
+            </div>
+            <div class="form_builder" >
+                <div class="row">
+                    <div class="col-sm-2">
+                        <nav class="nav-sidebar" >
+                            <ul class="nav" >
+								<h2 class="mr-auto">Form Designer</h2>
+                                <li class="form_bal_layout">
+                                    <div class="layout">
+                                        <img src="layout logo.png" width="25px" height="25px" id="img1" draggable="true">
+                                        <a href="javascript:;" draggable="true">Layout</a>
+                                    </div>
+                                </li><br>
+                                <li class="form_bal_label">
+                                    
+                                    <div class="layout">
+                                        <img src="logo.png" width="25px" height="25px" id="img1" draggable="true">
+                                        <a href="javascript:;" draggable="true">Label</a>
+                                    </div>
+                                </li><br>
+                                <li class="form_bal_Text Box">
+                                    <div class="layout">
+                                        <img src="text box.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                        <a href="javascript:;" draggable="true">Text Box</a>
+                                    </div>
+                                </li><br>
+                                <li class="form_bal_button">
+                                    <img src="white button2.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Button</a>
+                                </li><br>
+                                <li class="form_bal_checkbox">
+                                    <img src="checkbox.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Check box</a>
+                                </li><br>
+                                <li class="form_bal_radio">
+                                    <img src="radio.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Radio box</a>
+                                </li><br>
+                                <li class="form_bal_table">
+                                    <img src="table1.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Table</a>
+                                </li><br>
+                                <li class="form_bal_Navigation">
+                                    <img src="link.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Navigation</a>
+                                </li><br>
+								<li class="form_bal_image">
+                                    <img src="image logo.jpg" width="25px" height="25px" id="img1" draggable="true">
+                                    <a href="javascript:;" draggable="true">Image</a>
+                                </li><br>
+                            </ul>
+                        </lav>
+                    </div>
+                    <div class="col-md-5 bal_builder">
+                        <div class="form_builder_area"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="col-md-12">
+                            <form class="form-horizontal">
+                                <div class="preview"></div>
+                                <div style="display: none" class="form-group plain_html"><textarea rows="50" class="form-control"></textarea></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>// JavaScript for drag-and-drop functionality
+            const draggables = document.querySelectorAll(".form_bal_layout, .form_bal_label, .form_bal_Text Box, .form_bal_button, .form_bal_checkbox, .form_bal_radio, .form_bal_table, .form_bal_Navigation, .form_bal_image");
+            const formBuilderArea = document.querySelector(".form_builder_area");
+            
+            draggables.forEach((draggable) => {
+              draggable.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", e.target.id);
+              });
+            });
+            
+            formBuilderArea.addEventListener("dragover", (e) => {
+              e.preventDefault();
+            });
+            
+            formBuilderArea.addEventListener("drop", (e) => {
+              e.preventDefault();
+              const data = e.dataTransfer.getData("text/plain");
+              const draggedElement = document.getElementById(data);
+              formBuilderArea.appendChild(draggedElement);
+            });
+            
+            // JavaScript for form submission and other functionality
+            // Add your form handling code here
+            </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/form_builder.js"></script>
+    </body>
+<script src="script.js"></script>
+</html>
